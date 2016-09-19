@@ -19,10 +19,21 @@ const config = {
             {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+            },
+            {
+                test: /\.(png|jpg|woff|eot|ttf|svg)$/,
+				loader: 'url-loader?limit=40000'
             }
         ]
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+        new webpack.DefinePlugin({
+			"process.env": {
+				NODE_ENV: JSON.stringify("development")
+			}
+		}),
         new ExtractTextPlugin("style.css", {
             allChunks: true
         }),
@@ -33,6 +44,13 @@ const config = {
 		    inject: 'body'
 		})
     ],
+    devServer: {
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
+        open: true,
+        stats: { colors: true }
+    },
     devtool: '#eval-source-map'
 };
 
