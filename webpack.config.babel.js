@@ -44,6 +44,9 @@ const config = {
 		    inject: 'body'
 		})
     ],
+    resolve: {
+    	extensions: ['', '.js']
+  	},
     devServer: {
         historyApiFallback: true,
         hot: true,
