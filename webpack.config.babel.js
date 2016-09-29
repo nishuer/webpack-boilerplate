@@ -4,10 +4,13 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const config = {
-    entry: path.resolve(__dirname, 'src/js/app.js'),
+    entry: {
+        app: path.resolve(__dirname, 'src/js/app.js')
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        publicPath: '/',
+        filename: '[name].js'
     },
     module: {
         loaders: [
@@ -22,7 +25,7 @@ const config = {
             },
             {
                 test: /\.(png|jpg|woff|eot|ttf|svg)$/,
-				loader: 'url-loader?limit=40000'
+				loader: 'url-loader?limit=10000'
             }
         ]
     },
