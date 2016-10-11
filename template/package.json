@@ -52,6 +52,8 @@
     "cross-env": "^3.0.0"
   },
   "dependencies": {
+    {{#iconfont}}
     "font-awesome": "^4.6.3"
+    {{/iconfont}}
   }
 }
