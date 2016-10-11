@@ -26,7 +26,7 @@ const config = merge(baseConfig, {
         historyApiFallback: true,
         hot: true,
         inline: true,
-        // open: true,
+        open: true,
         stats: { colors: true }
     },
     devtool: '#eval-source-map'
