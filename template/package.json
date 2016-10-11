@@ -30,9 +30,9 @@
     {{#iconfont}}
     "font-awesome-webpack": "0.0.4",
     {{/iconfont}}
-    {{#if (preprocessor == "Less") || iconfont}}
+    {{#if_or preprocessor iconfont "Less"}}
     "less": "^2.7.1",
-    {{/if}}
+    {{/if_or}}
     {{#if_eq preprocessor "Less"}}
     "less-loader": "^2.2.3",
     {{/if_eq}}
