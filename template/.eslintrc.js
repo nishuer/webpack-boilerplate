@@ -20,7 +20,6 @@ module.exports = {
         'import/imports-first': 0
     },
     settings: {
-        {{#iconfont}}
         'import/core-modules': [
             {{#iconfont}}
             'font-awesome-webpack'
