@@ -2,14 +2,29 @@ module.exports = {
     root: true,
     parser: 'babel-eslint',
     parserOptions: {
-        sourceType: 'module'
+        ecmaVersion: 6,
+        sourceType: 'module',
+        ecmaFeatures: {
+            jsx: true
+        }
     },
     {{#if_eq preset "Airbnb"}}
     extends: 'airbnb-base',
     {{/if_eq}}
     plugins: [
-        'html'
+        'html',
+        'import'
     ],
     // Custom rules
-    'rules': {}
+    rules: {
+        'import/imports-first': 0
+    },
+    settings: {
+        {{#iconfont}}
+        'import/core-modules': [
+            {{#iconfont}}
+            'font-awesome-webpack'
+            {{/iconfont}}
+        ]
+    }
 }
