@@ -3,12 +3,13 @@ import webpack from 'webpack';
 import merge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 import baseConfig from './webpack.conf.base.babel';
 
 const config = merge(baseConfig, {
     plugins: [
-        new ExtractTextPlugin("style.css", {
+        new ExtractTextPlugin("css/style.css", {
             allChunks: true
         }),
         new webpack.optimize.UglifyJsPlugin({
@@ -22,6 +23,7 @@ const config = merge(baseConfig, {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: 'index',
             template: path.resolve(__dirname, 'src/tpl/index.html'),
